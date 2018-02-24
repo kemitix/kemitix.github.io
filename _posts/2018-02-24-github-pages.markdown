@@ -26,19 +26,19 @@ cd kemitix.github.io
 
 ## Configure So Simple theme
 
-* Add plugin to *Gemfile*
+Add plugin to *Gemfile*:
 
 ```yaml
 gem "jekyll-remote-theme"`
 ```
 
-* Install plugin
+Install plugin:
 
 ```bash
 bundle install to install
 ```
 
-* Enable plugin and select theme in *_config.yml*:
+Enable plugin and select theme in *_config.yml*:
 
 ```yaml
 plugins:
@@ -52,7 +52,7 @@ remote_theme: mmistakes/so-simple-theme
 bundle exec jekyll serve --incremental
 ```
 
-* Open browser: `http://localhost:4000/`
+Open browser: `http://localhost:4000/`
 
 ## Publish to github
 
