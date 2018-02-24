@@ -35,7 +35,7 @@ gem "jekyll-remote-theme"`
 Install plugin:
 
 ```bash
-bundle install to install
+bundle install
 ```
 
 Enable plugin and select theme in *_config.yml*:
