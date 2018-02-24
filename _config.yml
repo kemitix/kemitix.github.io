@@ -23,11 +23,19 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://kemitix.github.i" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  kemitix
 
+owner:
+  name: Paul Campbell
+  avatar:
+  email: pcampbell@kemitix.net
+  github: kemitix
+
 # Build settings
 markdown: kramdown
 theme: minima
+remote_theme: mmistakes/so-simple-theme
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
