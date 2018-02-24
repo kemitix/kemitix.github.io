@@ -25,10 +25,15 @@ cd kemitix.github.io
 
 ## Configure So Simple theme
 
-Add plugin to *Gemfile*:
+Add plugins to *Gemfile*:
 
 ```yaml
-gem "jekyll-remote-theme"`
+gem "github-pages", group: :jekyll_plugins
+
+group :jekyll_plugins do
+    gem "jekyll-remote-theme"
+    gem "jekyll-sitemap"
+end
 ```
 
 Install plugin:
@@ -37,13 +42,12 @@ Install plugin:
 bundle install
 ```
 
-Enable plugin and select theme in *_config.yml*:
+Enable plugins and select theme in *_config.yml*:
 
 ```yaml
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
-  - jekyll-gist
 remote_theme: mmistakes/so-simple-theme
 ```
 
