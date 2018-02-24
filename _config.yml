@@ -38,7 +38,6 @@ theme: minima
 remote_theme: mmistakes/so-simple-theme
 plugins:
   - jekyll-remote-theme
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-gist
 

@@ -42,7 +42,6 @@ Enable plugin and select theme in *_config.yml*:
 ```yaml
 plugins:
   - jekyll-remote-theme
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-gist
 remote_theme: mmistakes/so-simple-theme
