@@ -34,12 +34,10 @@ exclude: ["Gemfile", "Gemfile.lock", ".idea"]
 comments: true
 
 # Build settings
-theme: minima
-remote_theme: mmistakes/so-simple-theme
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
-  - jekyll-gist
+remote_theme: mmistakes/so-simple-theme
 
 author:
   name: Paul Campbell
