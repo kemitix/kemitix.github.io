@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Building this site in Github Pages"
-date:   2018-02-24 11:44:00 +0000
-categories: jekyll github
+title: Building this site in Github Pages
+date: 2018-02-24 11:44:00 +0000
 ---
 The following are instructions to build this site. Largely it is an exercise in both verifying the steps for myself and in using the site building tools to create and publish this post.
 
@@ -43,6 +42,9 @@ Enable plugin and select theme in *_config.yml*:
 ```yaml
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
 remote_theme: mmistakes/so-simple-theme
 ```
 
