@@ -13,23 +13,59 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Paul Campbell Code
+title: Kemitix Code
 email: pcampbell@kemitix.net
-description: #>- # this means to ignore newlines until "baseurl:"
-#  Write an awesome description for your new site here. You can edit this
-#  line in _config.yml. It will appear in your document head meta (for
-#  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://kemitix.github.i" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  kemitix
+url: "https://kemitix.github.io"
+github_username: kemitix
+
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+#sass:
+#  sass-dir: _sass
+#  style: compressed
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..2
+  enable_codary: false
+exclude: ["Gemfile", "Gemfile.lock", ".idea"]
+comments: true
 
 # Build settings
-markdown: kramdown
 theme: minima
 remote_theme: mmistakes/so-simple-theme
 plugins:
-  - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+
+author:
+  name: Paul Campbell
+  picture: images/paul-campbell.jpg
+  email: pcampbell@kemitix.net
+  twitter:
+  facebook:
+  github: kemitix
+  stackexchange:
+  linkedin:
+  pinterest:
+
+disqus:
+  shortname: kemitix-code
+
+sitemap:
+    filename: "/sitemap.xml"
+    exclude:
+        - "/atom.xml"
+        - "/feed.xml"
+        - "/feed/index.xml"
+    include_posts:
+        - "/index.html"
+    change_frequency_name: "change_frequency"
+    priority_name: "priority"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
