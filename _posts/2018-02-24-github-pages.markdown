@@ -2,7 +2,7 @@
 layout: post
 title: "Building this site in Github Pages"
 date:   2018-02-24 11:44:00 +0000
-categories: jekyll update github
+categories: jekyll github
 ---
 The following are instructions to build this site. Largely it is an exercise in both verifying the steps for myself and in using the site building tools to create and publish this post.
 
