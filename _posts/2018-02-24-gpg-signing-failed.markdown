@@ -35,7 +35,7 @@ Where I found the option `--batch`.
 > **--no-batch**  
 > Use batch mode. Never ask, do not allow interactive commands. --no-batch disables this option. Note that even with a filename given on the command line, gpg might still need to read from STDIN (in particular if gpg figures that the input is a detached signature and no data file has been specified). Thus if you do not want to feed data via STDIN, you should connect STDIN to oq/dev/nullcq.
 
-My next iteration of `maven-gpg-plugin` config is now, **which still needs to be tested**:
+My next iteration of `maven-gpg-plugin` config is now:
 
 ```xml
 <plugin>
