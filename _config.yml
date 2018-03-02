@@ -31,7 +31,7 @@ comments: true
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
-remote_theme: mmistakes/so-simple-theme
+remote_theme: kemitix/hydejack
 author:
   name: Paul Campbell
   picture: images/paul-campbell.jpg
