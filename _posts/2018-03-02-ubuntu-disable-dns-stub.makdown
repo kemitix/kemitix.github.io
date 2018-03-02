@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Disable Ubuntu's DNS stub resolver"
-date: 2018-03-02 17:19:00
+date: 2018-03-02 17:19:00 +0000
 ---
-I'm starting to experiment with [Rancher]() to manage docker instances. However, when trying to starting the rancher-agent, 
+I'm starting to experiment with [Rancher](https://rancher.com/) to manage docker instances. However, when trying to starting the rancher-agent, 
 the logs were showing that it didn't like the lookback address being used for DNS resolution. It then promptly refused to go
 any further.
 
@@ -17,19 +17,26 @@ The following instructions are from [Bastian Voigt](https://askubuntu.com/users/
 [askUbuntu.com](https://askubuntu.com/questions/907246/how-to-disable-systemd-resolved-in-ubuntu):
 
 > Disable the systemd-resolved service and stop it:
+
 ```bash
 sudo systemctl disable systemd-resolved.service
 sudo service systemd-resolved stop
 ```
+
 > Put the following line in the [main] section of your /etc/NetworkManager/NetworkManager.conf:
+
 ```none
 dns=default
 ```
+
 > Delete the symlink /etc/resolv.conf
+
 ```bash
 sudo rm /etc/resolv.conf
 ```
+
 > Restart network-manager
+
 ```bash
 sudo service network-manager restart
 ```
