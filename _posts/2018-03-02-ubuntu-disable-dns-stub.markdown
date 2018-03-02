@@ -13,32 +13,27 @@ periodically.
 
 For a more static instance, such as my development machine, a fixed DNS resolution address will do me fine.
 
-The following instructions are from [Bastian Voigt](https://askubuntu.com/users/680732/bastian-voigt)'s answer on 
-[askUbuntu.com](https://askubuntu.com/questions/907246/how-to-disable-systemd-resolved-in-ubuntu):
+The following instructions are from [Bastian Voigt's](https://askubuntu.com/users/680732/bastian-voigt) answer on 
+[askUbuntu.com](https://askubuntu.com/):
+
+[How to disable systemd-resolved in Ubuntu?](https://askubuntu.com/questions/907246/how-to-disable-systemd-resolved-in-ubuntu):
 
 > Disable the systemd-resolved service and stop it:
-
-```bash
-sudo systemctl disable systemd-resolved.service
-sudo service systemd-resolved stop
-```
-
-> Put the following line in the [main] section of your /etc/NetworkManager/NetworkManager.conf:
-
-```none
-dns=default
-```
-
-> Delete the symlink /etc/resolv.conf
-
-```bash
-sudo rm /etc/resolv.conf
-```
-
+> ```bash
+> sudo systemctl disable systemd-resolved.service
+> sudo service systemd-resolved stop
+> ```
+> Put the following line in the `[main]` section of your `/etc/NetworkManager/NetworkManager.conf`:
+> ```none
+> dns=default
+> ```
+> Delete the symlink `/etc/resolv.conf`
+> ```bash
+> sudo rm /etc/resolv.conf
+> ```
 > Restart network-manager
-
-```bash
-sudo service network-manager restart
-```
+> ```bash
+> sudo service network-manager restart
+> ```
 
 Then I simply restarted my rancher-agent docker instance and it's happy to continue.
