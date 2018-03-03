@@ -17,7 +17,6 @@ title: Kemitix Code
 email: pcampbell@kemitix.net
 url: "https://kemitix.github.io"
 github_username: kemitix
-permalink: /:year/:month/:day/:title/
 markdown: kramdown
 kramdown:
   input: GFM
@@ -37,4 +36,39 @@ author:
   picture: images/paul-campbell.jpg
   email: pcampbell@kemitix.net
   github: kemitix
+
+# hydejack settings
+accent_image: images/sidebar-bg.jpg
+  #background: '#902040'
+  #overlay: true
+accent_color: '#902040'
 disqus: kemitix-code
+
+google_fonts:          Cabin:700|Karma:400,400i,700,700i
+font:                  Karma, Helvetica, Arial, sans-serif
+font_heading:          Cabin, Helvetica, Arial, sans-serif
+
+plugins:
+  # - jekyll-avatar
+  # - jekyll-default-layout
+  - jekyll-feed
+  # - jekyll-gist
+  # - jekyll-optional-front-matter
+  - jekyll-paginate
+  # - jekyll-readme-index
+  # - jekyll-redirect-from
+  - jekyll-relative-links
+  # - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  # - jekyll-titles-from-headings
+
+# webmaster_verifications:
+#   google:              <verification-id>
+
+# Used on index and about sites
+# social:
+#   name:                <firstname> <lastname>
+#   links:
+#     - https://twitter.com/<username>
+#     - https://github.com/<username>
