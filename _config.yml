@@ -37,5 +37,4 @@ author:
   picture: images/paul-campbell.jpg
   email: pcampbell@kemitix.net
   github: kemitix
-disqus:
-  shortname: kemitix-code
+disqus: kemitix-code
