@@ -2,14 +2,11 @@
 layout: post
 title: "Template: Jenkinsfile"
 date: 2018-02-24 22:09:00 +0000
-last_updated: 2018-03-04 09:41:00 +0000
+last_updated: 2018-03-04 12:50:00 +0000
 ---
-Checks out from Git, builds while updating snapshots, and if on the master branch, deploys.
-
-Replace ${PROJECT} with the name of the project.
-
 ```jenkins
-final String gitRepoUrl = 'git@github.com:kemitix/${PROJECT}.git'
+final String repoName = "..."
+final String repoUrl = 'git@github.com:kemitix/${repoName}.git'
 final String mvn = "mvn --batch-mode --update-snapshots"
 
 pipeline {
@@ -17,7 +14,7 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                git url: gitRepoUrl, branch: '**', credentialsId: 'github-kemitix'
+                git url: repoUrl, branch: '**', credentialsId: 'github-kemitix'
             }
         }
         stage('no SNAPSHOT in master') {
