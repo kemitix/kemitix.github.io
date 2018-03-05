@@ -2,11 +2,11 @@
 layout: post
 title: "Template: Jenkinsfile"
 date: 2018-02-24 22:09:00 +0000
-last_updated: 2018-03-04 12:50:00 +0000
+last_updated: 2018-03-05 21:00:00 +0000
 ---
 ```jenkins
-final String repoName = "..."
-final String repoUrl = 'git@github.com:kemitix/${repoName}.git'
+final String repoName = "conditional"
+final String repoUrl = "git@github.com:kemitix/${repoName}.git"
 final String mvn = "mvn --batch-mode --update-snapshots"
 
 pipeline {
@@ -41,7 +41,7 @@ pipeline {
                 stage('Java 9') {
                     steps {
                         withMaven(maven: 'maven 3.5.2', jdk: 'JDK 9') {
-                            sh "${mvn} clean install"
+                            sh 'mvn clean install'
                         }
                     }
                 }
@@ -50,6 +50,7 @@ pipeline {
         stage('Test Results') {
             steps {
                 junit '**/target/surefire-reports/*.xml'
+                jacoco exclusionPattern: '**/*{Test|IT|Main|Application|Immutable}.class'
             }
         }
         stage('Archiving') {
@@ -57,15 +58,15 @@ pipeline {
                 archiveArtifacts '**/target/*.jar'
             }
         }
-        stage('Coverage') {
+        stage('Quality') {
             steps {
-                jacoco(execPattern: '**/target/jacoco.exec')
+                pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
             }
         }
         stage('Deploy') {
             when { expression { (env.GIT_BRANCH == 'master') } }
             steps {
-                withMaven(maven: 'maven 3.5.2', jdk: 'JDK 1.8') {
+                withMaven(maven: 'maven 3.5.2', jdk: 'JDK 9') {
                     sh "${mvn} deploy --activate-profiles release -DskipTests=true"
                 }
             }
