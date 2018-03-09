@@ -12,7 +12,7 @@ Features:
 * Performs a test build/install with Java 9 to validate compatibility
 * Performs build/install with Java 8 for deploy candidate
 * Records test results and code coverage in Jenkins if tests were run by surefire/failsafe
-* Publishes code coverage to Codacy if tests were run by surefire/failsage
+* Publishes code coverage to Codacy if tests were run by surefire/failsafe - see helpers below
 * Archives any jar file created
 * Deploy if on master branch and is attached to a remote git repo (i.e. not a local file:/ repo).
 
@@ -92,4 +92,42 @@ pipeline {
         }
     }
 }
+```
+
+## Codacy
+
+Publishing to Codacy requires having a secret API Token and a Repo Token. Neither of these should be added to the Jenkinsfile. Instead the two scripts here are interpolated into the maven command line that invokes the `codacy-maven-plugin` in the *Test Results* stage.
+
+Requirements: `xpath` 
+ 
+ > `sudo apt install libxml-xpath-perl`
+
+### token
+
+```bash
+#!/usr/bin/env bash
+
+TOKENS_FILE=`dirname $0`/tokens
+ARTIFACT_ID=`xpath -q -e "/project/artifactId/text()" < pom.xml`
+
+grep "^${ARTIFACT_ID}=" ${TOKENS_FILE}|cut -d= -f2
+``` 
+
+### tokens
+
+Provides the repo token by searching for it in the text file `tokens`. e.g.
+```none
+repo1=repo1key
+repo2=repo2key
+```
+These would match against the `artifactId` of the root module `pom.xml`.
+
+### apitoken
+
+Simply echos the apikey to STDOUT.
+
+```bash
+#!/usr/bin/env bash
+
+echo "xxxXXXxxxXXXxxxXXXxxx"
 ```
